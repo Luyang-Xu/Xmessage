@@ -13,28 +13,13 @@ import com.luyang.common.app.BaseActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity implements Iview{
+public class MainActivity extends BaseActivity{
 
-    @BindView(R.id.edit_input)
-    EditText edit_input;
-    @BindView(R.id.btn_submit)
-    Button btn_submit;
-    @BindView(R.id.text_info)
-    TextView text_info;
-
-
-    private  Ipresenter presenter;
-
-    @OnClick(R.id.btn_submit)
-    public void search(){
-        Toast.makeText(this,"CLICK",Toast.LENGTH_LONG).show();
-        presenter.search();
-    }
 
     @Override
     protected void initData() {
         super.initData();
-        presenter = new Presenter(this);
+
     }
 
     //    @Override
@@ -47,16 +32,5 @@ public class MainActivity extends BaseActivity implements Iview{
     @Override
     protected int getContentLayoutId() {
         return R.layout.activity_main;
-    }
-
-
-    @Override
-    public void setMessage(String info) {
-        text_info.setText(info);
-    }
-
-    @Override
-    public String getInput() {
-        return edit_input.getText().toString();
     }
 }
